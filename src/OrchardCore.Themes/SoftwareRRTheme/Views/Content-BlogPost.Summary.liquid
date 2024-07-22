@@ -1,0 +1,21 @@
+<div class="grid-list-items__item blog-card">
+    {% a display_for:Model.ContentItem %}
+        {% assign format = "MMMM dd, yyyy" | t %}
+        {% assign dateTime = "DateTime" | shape_new: utc: Model.ContentItem.CreatedUtc, format: format | shape_stringify %}
+        <div class="blog-card__header">
+            <div class="blog-card__cat-links my-orange">{{ "posted by " | t }} {{ Model.ContentItem.Author }} {{ " on {0}" | t: dateTime | raw }} <br/> {{ Model.ContentItem.Content.BlogPost.Subtitle.Text }}</div>
+            <h3 class="blog-card__title blog-card__title-color">{{ Model.ContentItem.DisplayText }}</h3>
+        </div>
+    {% enda %}
+
+    <div class="blog-card__text">
+        <p>  
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum ullam et laborum aperiam. Dignissimos quae voluptatibus ullam esse sapiente fugiat, rerum labore cupiditate obcaecati dolore necessitatibus id magni rem officia dolor nam sit laudantium. Quo eaque eveniet quibusdam unde. 
+        </p>
+    </div>
+</div> <!-- end blog-card -->
+
+
+
+
+

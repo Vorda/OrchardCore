@@ -1,0 +1,33 @@
+[
+  {
+    "copy": true,
+    "inputs": [
+      "Assets/dist/images/*"
+    ],
+    "output": "wwwroot/images/@"
+  },
+  {
+    "inputs": [
+      "Assets/dist/css/styles.css"
+    ],
+    "output": "wwwroot/css/styles.css"
+  },
+  {
+    "inputs": [
+      "Assets/dist/css/vendor.css"
+    ],
+    "output": "wwwroot/css/vendor.css"
+  },
+  {
+    "inputs": [
+      "Assets/dist/js/main.js"
+    ],
+    "output": "wwwroot/js/scripts.js"
+  }
+  {
+    "inputs": [
+      "Assets/dist/js/plugins.js"
+    ],
+    "output": "wwwroot/js/plugins.js"
+  }
+]

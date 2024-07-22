@@ -1,0 +1,25 @@
+ {% zone "Header" %}
+    <div class="row">
+        <div class="column xl-12">
+            <h1 class="page-title">
+                <span class="page-title__small-type text-pretitle"> {{ Model.ContentItem.DisplayText }} </span>
+                Recent Writings
+            </h1>
+        </div>
+    </div>
+{% endzone %}
+
+<section class="s-pagecontent pagecontent">
+    <div class="row">
+        <div class="column xl-12 grid-block">
+            <div class="grid-full grid-list-items">
+                {% shape_remove_item Model.Content "HtmlBodyPart" %}
+                {% shape_remove_item Model.Content "Blog-Image" %}
+                
+                {{ Model.Content | shape_render }}
+            </div> <!-- grid-list-items -->
+        </div> <!-- end grid-block-->
+    </div> <!-- end row -->
+</section> <!-- end pagecontent -->
+
+
