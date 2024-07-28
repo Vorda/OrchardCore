@@ -1,0 +1,12 @@
+@model OrchardCore.Title.ViewModels.TitlePartViewModel
+<div class="row">
+    <div class="column xl-12">
+        <h1 class="page-title">
+            <span class="page-title__small-type text-pretitle">@Model.Title</span>
+            @(Model.ContentItem.Content.Page?.PageTitle.Text ?? "")
+        </h1>
+    </div>
+</div>
+
+
+

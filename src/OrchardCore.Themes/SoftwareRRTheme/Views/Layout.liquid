@@ -28,7 +28,7 @@
     ================================================== -->
     <div id="preloader">
         <div id="loader" class="dots-fade">
-            <div></div>
+            <div></div>ow 
             <div></div>
             <div></div>
         </div>
@@ -48,28 +48,15 @@
 
                 <div class="s-header__block">
                     <div class="s-header__logo">
-                        <a class="logo" href="index.html">
+                        <a class="logo" href="/">
                             <img src="images/logo.svg" alt="Vorda's den">
                         </a>
-                    </div>
+                    </div> 
 
                     <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
                 </div> <!-- end s-header__block -->
-
-                <nav class="s-header__nav">
-    
-                    <ul class="s-header__menu-links">
-                        <li><a href="/about">About</a></li>
-                        <li><a href="/services">Services</a></li>
-                        <li><a href="/blog">Journal</a></li>
-                        <li><a href="/contact">Contact</a></li>
-                    </ul> <!-- s-header__menu-links -->
-
-                    <div class="s-header__contact">
-                        <a href="contact.html" class="btn btn--primary s-header__contact-btn">Let's Work Together</a>                        
-                    </div> <!-- s-header__contact -->
-    
-                </nav> <!-- end s-header__nav -->
+                
+                {% shape "menu", alias: "alias:main-menu", cache_id: "main-menu", cache_tag: "alias:main-menu" %}
 
             </div> <!-- end s-header__inner -->
 
@@ -84,103 +71,8 @@
             {% render_section "Header", required: false %}
             {% render_body %}
         </section>
-        
-        
-        <section id="cta" class="s-cta">
-            <div class="row row-x-center text-center">
-                <div class="column xl-8 lg-12">
-                    <div class="s-cta__content">
-                        <h2 class="text-display-title">
-                        Get started with a consultation today.
-                        </h2>
-                        <p class="lead">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis rem, esse doloribus sint eaque at debitis enim vitae minus expedita ratione dignissimos sit nostrum optio sequi. Ipsa at beatae quam.
-                        </p>
-                        <a href="contact.html" class="btn btn--primary">Let's Work Together</a>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <section id="journal" class="s-journal">
-
-            <div class="row s-journal__content width-sixteen-col">
-                <div class="column xl-12 grid-block">
-
-                    <div class="grid-full section-header text-center">
-                        <div class="text-pretitle">Recent Articles</div>                           
-                        <h2 class="text-display-title">
-                        Latest articles from my blog.
-                        </h2>  
-                    </div> 
-
-                    <div class="grid-full s-journal__content-main grid-list-items">
-
-                        <div class="grid-list-items__item blog-card">
-                            <div class="blog-card__header">
-                                <div class="blog-card__cat-links">
-                                    <a href="https://mydataknox.com/">Sponsored</a>
-                                </div>
-                                <h3 class="blog-card__title"><a href="https://mydataknox.com/">Need Web Hosting for Your Websites?</a></h3>
-                            </div>
-                            <div class="blog-card__text">
-                                <p>
-                                Need hosting for your website? We would highly recommend <a href="https://mydataknox.com/">MyDataKnox</a>.
-                                Enjoy 100% in-house support, guaranteed performance and uptime, 1-click installs, and a super-intuitive control 
-                                panel to make managing your websites and projects easy. <a href="https://mydataknox.com/">Sign up</a> now to get started.
-                                </p>
-                            </div>
-                        </div> 
-                        <div class="grid-list-items__item blog-card">
-                            <div class="blog-card__header">
-                                <div class="blog-card__cat-links">
-                                    <a href="blog.html">Productivity</a>
-                                </div>
-                                <h3 class="blog-card__title"><a href="single.html">5 Marketing Productivity Apps for Your Team</a></h3>
-                            </div>
-                            <div class="blog-card__text">
-                                <p>
-                                Rerum quam quos. Quibusdam quis autem voluptatibus earum vel ex error ea magni. Aut asperiores 
-                                sit mollitia. Rem neque et voluptatem eos quia sed eligendi et. Eaque velit eligendi ut 
-                                magnam. Cumque ducimus laborum doloribus facere maxime vel earum quidem enim suscipit.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="grid-list-items__item blog-card">
-                            <div class="blog-card__header">
-                                <div class="blog-card__cat-links">
-                                    <a href="blog.html">SEO</a>
-                                </div>
-                                <h3 class="blog-card__title"><a href="single.html">7 SEO Factors to Consider for Better Website Ranking</a></h3>
-                            </div>
-                            <div class="blog-card__text">
-                                <p>
-                                Quibusdam quis autem voluptatibus earum vel ex error ea magni. Rerum quam quos. Aut asperiores 
-                                sit mollitia. Rem neque et voluptatem eos quia sed eligendi et. Eaque velit eligendi ut 
-                                magnam. Cumque ducimus laborum doloribus facere maxime vel earum quidem enim suscipit.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="grid-list-items__item blog-card">
-                            <div class="blog-card__header">
-                                <div class="blog-card__cat-links">
-                                    <a href="blog.html">Productivity</a>
-                                </div>
-                                <h3 class="blog-card__title"><a href="single.html">5 Effective Web Design Principles</a></h3>
-                            </div>
-                            <div class="blog-card__text">
-                                <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum ullam et laborum aperiam. 
-                                Dignissimos quae voluptatibus ullam esse sapiente fugiat, rerum labore cupiditate obcaecati 
-                                dolore necessitatibus id magni rem officia dolor nam sit laudantium. Quo eaque eveniet quibusdam unde. 
-                                </p>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div> 
-
-        </section>
+        {% render_section "AfterContent", required: false %}
         
         {% render_section "Footer", required: false %}
         

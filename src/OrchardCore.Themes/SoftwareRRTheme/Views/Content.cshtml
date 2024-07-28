@@ -1,0 +1,26 @@
+@using OrchardCore.Mvc.Utilities
+
+@if (Model.Header != null || Model.Meta != null)
+{
+    <section class="s-pageheader pageheader">
+        @await DisplayAsync(Model.Header)
+        @if (Model.Meta != null)
+        {
+            <div class="metadata">
+                @await DisplayAsync(Model.Meta)
+            </div>
+        }
+    </section>
+}
+
+<section class="s-pagecontent pagecontent">
+    @await DisplayAsync(Model.Content)
+</section>
+
+@if (Model.Footer != null)
+{
+    <footer>
+        @await DisplayAsync(Model.Footer)
+    </footer>
+}
+

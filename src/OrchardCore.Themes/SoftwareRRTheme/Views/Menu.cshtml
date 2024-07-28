@@ -1,0 +1,21 @@
+@{
+    // By using a tag builder, sub items can alter the
+    // menu element. Note how Display is called on the menu
+    // items before the tag is actually rendered.
+
+    TagBuilder tag = Tag(Model, "ul");
+    tag.AddCssClass("list-group");
+    tag.AddCssClass("s-header__menu-links");
+    foreach (var item in Model.Items)
+    {
+        tag.InnerHtml.AppendHtml(await DisplayAsync(item));
+    }
+}
+
+<nav class="s-header__nav">
+    @tag
+
+    <div class="s-header__contact">
+        <a href="/Contact" class="btn btn--primary s-header__contact-btn">Let's Work Together</a>
+    </div>
+</nav>
