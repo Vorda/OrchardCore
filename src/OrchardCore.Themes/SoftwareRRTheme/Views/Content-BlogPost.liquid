@@ -1,0 +1,30 @@
+{% zone "Header" %}
+    <section class="s-pageheader pageheader">
+        {{ Model.Header | shape_render }}
+        <div class="metadata">
+            {{ Model.Meta | shape_render }}
+        </div>
+    </section>
+{% endzone %}
+
+<article id="content" class="s-content entry">
+    <div class="s-pagecontent entry__content">
+        <div class="row entry__media">
+            <div class="column xl-12">
+                <figure class="featured-image">
+                    {{ Model.Content.BlogPost.Image | shape_render }}
+                </figure>
+            </div>
+        </div>
+
+        <div class="row entry__primary width-narrower">
+            <div class="column xl-12">
+                {{ Model.Content.MarkdownBodyPart | shape_render }}
+            </div>
+        </div>
+    </div>
+</article>    
+
+<footer>
+    {{ Model.Footer | shape_render }}
+</footer>

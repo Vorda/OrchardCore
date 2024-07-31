@@ -1,0 +1,22 @@
+{% zone "Header" %}
+    <section class="s-pageheader pageheader">
+        {{ Model.Content.TitlePart | shape_render }}
+    </section>
+{% endzone %}
+
+{% shape_remove_item Model.Content "HtmlBodyPart" %}
+{% shape_remove_item Model.Content "Blog-Image" %}
+
+<section class="s-pagecontent pagecontent">
+    <div class="row">
+        <div class="column xl-12 grid-block">
+            <div class="grid-full grid-list-items">
+                {{ Model.Content | shape_render }}
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    {{ Model.Footer | shape_render }}
+</footer>

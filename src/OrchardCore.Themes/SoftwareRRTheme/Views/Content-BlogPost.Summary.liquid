@@ -1,0 +1,15 @@
+<div class="grid-list-items__item blog-card">
+    <div class="blog-card__header">
+        <div class="blog-card__cat-links">
+            {% a display_for:Model.ContentItem %} {{ Model.ContentItem.Content.BlogPost.Subtitle.Text }} {% enda %}
+        </div>
+        <h3 class="blog-card__title">
+            {% a display_for:Model.ContentItem %} {{ Model.ContentItem.DisplayText }} {% enda %}
+        </h3>
+        <div class="blog-card__cat-links">
+            {% assign format = "MMMM dd, yyyy" | t %}
+            {% assign dateTime = "DateTime" | shape_new: utc: Model.ContentItem.CreatedUtc, format: format | shape_stringify %}
+            {{ "{0}" | t: dateTime | raw }}
+        </div>
+    </div>
+</div> 

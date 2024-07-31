@@ -1,0 +1,11 @@
+<nav class="s-header__nav">
+    <ul class="list-group s-header__menu-links">
+        {% for item in Model.Items %}
+        {{ item | shape_render }}
+        {% endfor %}
+    </ul>
+
+    <div class="s-header__contact">
+        <a href="/Contact" class="btn btn--primary s-header__contact-btn">Let's Work Together</a>
+    </div>
+</nav>
