@@ -1,0 +1,32 @@
+{% zone "Header" %}
+<h1 class="h1-beam">{{ Model.ContentItem.DisplayText }}</h1>
+
+<div class="cd-meta">
+        <span>
+            {% assign format = "MMMM dd, yyyy" | t %}
+            {% assign dateTime = "DateTime" | shape_new: utc: Model.ContentItem.CreatedUtc, format: format | shape_stringify %}
+            {{ t | t: dateTime | raw }}
+        </span>
+        <span>•</span>
+        <span>Unity, Tools, Debugging</span>
+    </div>
+{% endzone %}
+
+{{ Model.Content.ContentsMetadata | shape_render }}
+{{ Model.Content.BlogPost-Category | shape_render }}
+{{ Model.Content.BlogPost-Tags | shape_render }}
+
+{% assign recentBlogPosts = Queries.RecentBlogPosts | query %}
+{% for item in recentBlogPosts %}
+{{ item | display_text }}
+{% endfor %}
+
+
+
+<article id="content" class="cd-post">
+    {{ Model.Content.MarkdownBodyPart | shape_render }}
+</article>    
+
+<footer>
+    {{ Model.Footer | shape_render }}
+</footer>

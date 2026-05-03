@@ -1,0 +1,16 @@
+<div style="display:contents">
+    {% shape_clear_alternates Model %}
+    {% shape_type Model "MenuItemLink" %}
+    <!-- TYPE: {{ Model.Metadata.Type }} -->
+    <!-- ALTS: {{ Model.Metadata.Alternates | join: ', ' }} -->
+    {{ Model | shape_render }}
+    {% if Model.HasItems %}
+    <ul>
+        {% for item in Model.Items %}
+        <!-- TYPE: {{ item.Metadata.Type }} -->
+        <!-- ALTS: {{ item.Metadata.Alternates | join: ', ' }} -->
+        {{ item | shape_render }}
+        {% endfor %}
+    </ul>
+{% endif %}
+</div>

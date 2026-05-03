@@ -1,0 +1,133 @@
+/* ============================================================
+   ADVANCED NEONCORE HEADER — CLEAN FINAL VERSION
+   ============================================================ */
+
+.nc-header {
+    padding: 28px 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 50;
+}
+
+/* HUD Frame */
+.nc-frame {
+    position: relative;
+    padding: 20px 40px;
+    border: 2px solid #00ff80;
+    border-radius: 16px;
+    background: rgba(0,255,128,0.06);
+    box-shadow: 0 0 25px rgba(0,255,128,0.7), inset 0 0 25px rgba(0,255,128,0.4);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease-out;
+}
+
+    /* Circuit Corners */
+    .nc-frame::before,
+    .nc-frame::after {
+        content: "";
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        border: 2px solid #00ff80;
+        opacity: 0.9;
+        pointer-events: none;
+    }
+
+    .nc-frame::before {
+        top: -8px;
+        left: -8px;
+        border-right: none;
+        border-bottom: none;
+    }
+
+    .nc-frame::after {
+        bottom: -8px;
+        right: -8px;
+        border-left: none;
+        border-top: none;
+    }
+
+/* Title */
+.nc-title {
+    font-family: var(--font-header);
+    font-size: 1.6rem;
+    color: #00ff80;
+    text-shadow: 0 0 14px #00ff80, 0 0 28px rgba(0,255,128,0.8);
+    letter-spacing: 1.5px;
+    transform: translateZ(20px);
+}
+
+/* Navigation */
+.nc-nav {
+    display: flex;
+    gap: 28px;
+}
+
+/* Neoncore Links — readable, bold, sharp */
+.nc-link {
+    font-family: var(--font-header);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 8px 4px;
+    position: relative;
+    text-decoration: none;
+    color: #7ffcff;
+    text-shadow: 0 0 6px #00eaff, 0 0 12px #00eaff, 0 0 24px rgba(0,200,255,0.9);
+    transition: 0.18s ease-out;
+    transform: translateZ(30px);
+}
+
+    /* Hover: brighter, sharper, powercore burst */
+    .nc-link:hover {
+        color: #c8ffff;
+        text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff, 0 0 40px #00eaff, 0 0 80px rgba(0,200,255,0.8);
+        transform: translateZ(40px) scale(1.08);
+        animation: powerBurst 0.35s ease-out;
+    }
+
+@keyframes powerBurst {
+    0% {
+        filter: brightness(1);
+    }
+
+    40% {
+        filter: brightness(1.6);
+    }
+
+    100% {
+        filter: brightness(1);
+    }
+}
+
+/* Circuit Trace Underline */
+.nc-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient( 90deg, transparent 0%, #00eaff 20%, #00ff80 50%, #00eaff 80%, transparent 100% );
+    opacity: 0;
+    transform: scaleX(0.4);
+    transition: 0.25s ease-out;
+    filter: drop-shadow(0 0 6px #00eaff);
+}
+
+.nc-link:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+/* Border Glow on Hover */
+.nc-link::before {
+    content: "";
+    position: absolute;
+    inset

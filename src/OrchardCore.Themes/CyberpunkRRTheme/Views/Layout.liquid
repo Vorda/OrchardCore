@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="{{ Culture.Name }}" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ "PageTitle" | shape_new | shape_stringify }}</title>
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+    
+    {% resources type: "Meta" %}
+
+    <!-- INSERT REQUIRED RESOURCES HERE -->
+
+     <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="/css/core.css">
+    <link rel="stylesheet" href="/css/cyberRR.css">
+    <link rel="stylesheet" href="/css/neoncore-header.css">
+    
+    {% resources type: "HeadLink" %}
+    {% resources type: "Stylesheet" %}
+    {% resources type: "HeadScript" %}
+</head>
+<body id="top" dir="{{ Culture.Dir }}" class="theme-A">
+    
+    <!-- page wrap
+    ================================================== -->
+    <div id="page" class="s-pagewrap">
+    <canvas id="matrix"></canvas>
+
+
+        <!-- # site header 
+        ================================================== -->
+        <header class="nc-header">
+            <div class="nc-frame">
+                <div class="nc-title">Vorda's dev diary</div>
+                {% shape "menu", alias: "alias:main-menu", cache_id: "main-menu", cache_tag: "alias:main-menu" %}
+                <div class="nc-glow"></div>
+            </div>
+        </header>
+        
+        <!-- # site main content
+        ================================================== -->
+
+        <section id="content" class="s-content">
+            {% render_section "Header", required: false %}
+            {% render_body %}
+        </section>
+
+        {% render_section "AfterContent", required: false %}
+        
+        {% render_section "Footer", required: false %}
+        
+    </div>
+
+     
+    {% script name:"jquery", use_cdn:"true", at:"Foot" %}
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="/js/plugins.js"></script>
+    <script src="/js/main.js"></script>
+    
+    {% resources type: "FootScript" %}
+</body>
+</html>

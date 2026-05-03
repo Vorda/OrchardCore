@@ -1,0 +1,904 @@
+/* ============================
+   HEADERS
+   ============================ */
+
+h1 {
+    color: #00ff80;
+    font-size: 2.6rem;
+    text-shadow: 0 0 16px #00ff80, 0 0 32px rgba(0,255,128,0.8);
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #00c8ff;
+    font-size: 2rem;
+    text-shadow: 0 0 14px #00c8ff, 0 0 28px rgba(0,200,255,0.8);
+    margin-top: 40px;
+}
+
+h3 {
+    color: #ff00c8;
+    font-size: 1.6rem;
+    text-shadow: 0 0 10px #ff00c8, 0 0 20px rgba(255,0,200,0.8);
+}
+
+h4 {
+    color: #c8ff00;
+    font-size: 1.3rem;
+    text-shadow: 0 0 8px #c8ff00, 0 0 16px rgba(200,255,0,0.8);
+}
+
+/* ============================
+   RR BLOCK BASE
+   ============================ */
+
+[class$="RR"] {
+    margin: 32px 0;
+    padding: 24px 28px;
+    border-radius: 16px;
+    background: var(--bg-panel);
+    border: 1px solid rgba(0, 255, 128, var(--border-brightness));
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 calc(18px * var(--neon-strength)), 0 0 calc(40px * var(--neon-strength)) rgba(0,255,128,0.35);
+}
+
+    /* Circuit-board borders + animated traces */
+    [class$="RR"]::before,
+    [class$="RR"]::after {
+        content: "";
+        position: absolute;
+        background: rgba(0,255,128,var(--circuit-brightness));
+        opacity: 0.9;
+        filter: blur(0.3px);
+    }
+
+    [class$="RR"]::before {
+        top: 0;
+        left: 5%;
+        width: 40%;
+        height: 2px;
+        animation: traceTop 3s infinite linear;
+    }
+
+    [class$="RR"]::after {
+        bottom: 0;
+        right: 5%;
+        width: 40%;
+        height: 2px;
+        animation: traceBottom 3.2s infinite linear;
+    }
+
+@keyframes traceTop {
+    0% {
+        transform: translateX(-30%);
+        opacity: 0.2;
+    }
+
+    50% {
+        transform: translateX(30%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(100%);
+        opacity: 0.2;
+    }
+}
+
+@keyframes traceBottom {
+    0% {
+        transform: translateX(30%);
+        opacity: 0.2;
+    }
+
+    50% {
+        transform: translateX(-30%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0.2;
+    }
+}
+
+/* Glitch overlay per block */
+[class$="RR"] .glitch-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0;
+    background: repeating-linear-gradient( to right, rgba(0,255,128,0.0) 0px, rgba(0,255,128,0.25) 1px, transparent 2px, transparent 4px );
+}
+
+/* Titles with slower typing animation */
+.rr-title {
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 14px;
+    color: #00ff80;
+    text-shadow: 0 0 12px rgba(0,255,128,0.9), 0 0 24px rgba(0,255,128,0.7);
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #00ff80;
+    width: 0;
+    opacity: 0;
+}
+
+.typing {
+    animation: typing 3.5s steps(40, end) forwards, blink 0.9s step-end infinite alternate;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+        opacity: 1;
+    }
+
+    to {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Body */
+[class$="RR"] p {
+    color: #e4ffef;
+    line-height: 1.7;
+    text-shadow: 0 0 4px rgba(0,0,0,0.8);
+}
+
+/* Bold */
+[class$="RR"] strong {
+    color: #00ff80;
+    text-shadow: 0 0 10px rgba(0,255,128,0.9);
+}
+
+/* ============================
+   VARIANT COLORS
+   ============================ */
+
+.chaosRR {
+    border-color: rgba(255,0,200,0.9);
+    background: rgba(255,0,200,0.16);
+    box-shadow: 0 0 18px rgba(255,0,200,0.7), 0 0 40px rgba(255,0,200,0.45);
+    color: #ff00c8;
+}
+
+.highlightRR {
+    border-color: rgba(0,200,255,0.9);
+    background: rgba(0,200,255,0.16);
+    box-shadow: 0 0 18px rgba(0,200,255,0.7), 0 0 40px rgba(0,200,255,0.45);
+    color: #00c8ff;
+}
+
+.noteRR {
+    border-color: rgba(80,140,255,0.9);
+    background: rgba(80,140,255,0.16);
+    box-shadow: 0 0 18px rgba(80,140,255,0.7), 0 0 40px rgba(80,140,255,0.45);
+    color: #508cff;
+}
+
+.warningRR {
+    border-color: rgba(255,140,0,0.9);
+    background: rgba(255,140,0,0.16);
+    box-shadow: 0 0 18px rgba(255,140,0,0.7), 0 0 40px rgba(255,140,0,0.45);
+    color: #ff8c00;
+}
+
+.jokeRR {
+    border-color: rgba(200,255,0,0.9);
+    background: rgba(200,255,0,0.16);
+    box-shadow: 0 0 18px rgba(200,255,0,0.7), 0 0 40px rgba(200,255,0,0.45);
+    color: #c8ff00;
+}
+
+/* ============================
+   ASCII RAIN CANVAS
+   ============================ */
+
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5;
+    opacity: var(--rain-brightness);
+    filter: blur(0.6px);
+}
+
+.overlay-dark {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.45);
+    z-index: 10;
+}
+
+/* ============================================================
+   ADVANCED HEADERS — CYBERDECK VARIANTS
+   ============================================================ */
+
+/* H1 — Neon Beam */
+.h1-beam {
+    font-size: 2.8rem;
+    color: #00ff80;
+    text-shadow: 0 0 20px #00ff80, 0 0 40px rgba(0,255,128,0.9);
+    position: relative;
+}
+
+    .h1-beam::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, #00ff80, transparent);
+        animation: beamSweep 3s infinite linear;
+    }
+
+@keyframes beamSweep {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(100%);
+        opacity: 0.2;
+    }
+}
+
+/* H1 — Glitch */
+.h1-glitch {
+    font-size: 2.6rem;
+    color: #00ff80;
+    position: relative;
+    text-shadow: 0 0 12px #00ff80;
+}
+
+    .h1-glitch::before,
+    .h1-glitch::after {
+        content: attr(data-text);
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0.6;
+    }
+
+    .h1-glitch::before {
+        color: #ff00c8;
+        transform: translate(2px, -2px);
+        animation: glitchShift 0.8s infinite;
+    }
+
+    .h1-glitch::after {
+        color: #00c8ff;
+        transform: translate(-2px, 2px);
+        animation: glitchShift 1.2s infinite;
+    }
+
+@keyframes glitchShift {
+    0% {
+        transform: translate(0,0);
+    }
+
+    20% {
+        transform: translate(2px,-2px);
+    }
+
+    40% {
+        transform: translate(-2px,2px);
+    }
+
+    60% {
+        transform: translate(2px,2px);
+    }
+
+    80% {
+        transform: translate(-2px,-2px);
+    }
+
+    100% {
+        transform: translate(0,0);
+    }
+}
+
+/* H2 — Circuit Header */
+.h2-circuit {
+    font-size: 2rem;
+    color: #00c8ff;
+    text-shadow: 0 0 12px #00c8ff;
+    position: relative;
+    padding-left: 20px;
+}
+
+    .h2-circuit::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 14px;
+        height: 2px;
+        background: #00c8ff;
+        box-shadow: 0 0 8px #00c8ff;
+    }
+
+/* H2 — Neon Pulse */
+.h2-pulse {
+    font-size: 2rem;
+    color: #00ff80;
+    animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+    0% {
+        text-shadow: 0 0 8px #00ff80;
+    }
+
+    50% {
+        text-shadow: 0 0 22px #00ff80;
+    }
+
+    100% {
+        text-shadow: 0 0 8px #00ff80;
+    }
+}
+
+/* H3 — Terminal Header */
+.h3-terminal {
+    font-size: 1.6rem;
+    color: #c8ff00;
+    border-left: 4px solid #c8ff00;
+    padding-left: 12px;
+    text-shadow: 0 0 6px #c8ff00;
+}
+
+/* H3 — Scanline Header */
+.h3-scan {
+    font-size: 1.6rem;
+    color: #ff00c8;
+    text-shadow: 0 0 10px #ff00c8;
+    position: relative;
+}
+
+    .h3-scan::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 100%;
+        height: 1px;
+        background: rgba(255,0,200,0.4);
+        animation: scanlineMove 2s infinite linear;
+    }
+
+@keyframes scanlineMove {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ============================================================
+   PARAGRAPH STYLES
+   ============================================================ */
+
+.p-terminal {
+    font-size: 1rem;
+    color: #d8ffe8;
+    border-left: 3px solid #00ff80;
+    padding-left: 12px;
+    margin: 20px 0;
+    opacity: 0.9;
+}
+
+.p-neon {
+    font-size: 1rem;
+    color: #00ffaa;
+    text-shadow: 0 0 8px #00ffaa;
+    margin: 20px 0;
+}
+
+.p-glitch {
+    font-size: 1rem;
+    color: #ff00c8;
+    text-shadow: 0 0 6px #ff00c8;
+    animation: glitchPulse 1.5s infinite;
+}
+
+@keyframes glitchPulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: skewX(1deg);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.p-soft {
+    font-size: 1rem;
+    color: #c8ffd8;
+    opacity: 0.85;
+    margin: 20px 0;
+}
+
+/* ============================================================
+   HORIZONTAL SEPARATORS
+   ============================================================ */
+
+.hr-neon {
+    height: 2px;
+    background: linear-gradient(90deg, #00ff80, transparent);
+    box-shadow: 0 0 12px #00ff80;
+    margin: 30px 0;
+}
+
+.hr-glitch {
+    height: 2px;
+    background: repeating-linear-gradient( to right, #ff00c8 0px, #ff00c8 2px, transparent 4px, transparent 6px );
+    animation: glitchLine 0.4s infinite;
+}
+
+@keyframes glitchLine {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(2px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.hr-circuit {
+    height: 2px;
+    background: #00c8ff;
+    box-shadow: 0 0 10px #00c8ff;
+    position: relative;
+    margin: 30px 0;
+}
+
+    .hr-circuit::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: -4px;
+        width: 10px;
+        height: 10px;
+        border: 2px solid #00c8ff;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #00c8ff;
+    }
+
+/* Neon bullet list */
+.ul-neon li {
+    list-style: none;
+    margin: 10px 0;
+    padding-left: 20px;
+    position: relative;
+    color: #00ff80;
+    text-shadow: 0 0 8px #00ff80;
+}
+
+    .ul-neon li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        animation: neonPulseBullet 2s infinite ease-in-out;
+    }
+
+@keyframes neonPulseBullet {
+    0% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+}
+
+/* Circuit bullet list */
+.ul-circuit li {
+    list-style: none;
+    margin: 10px 0;
+    padding-left: 26px;
+    position: relative;
+    color: #00c8ff;
+}
+
+    .ul-circuit li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 14px;
+        height: 2px;
+        background: #00c8ff;
+        box-shadow: 0 0 6px #00c8ff;
+    }
+
+/* Glitch bullet list */
+.ul-glitch li {
+    list-style: none;
+    margin: 10px 0;
+    padding-left: 20px;
+    position: relative;
+    color: #ff00c8;
+    animation: glitchList 1.5s infinite;
+}
+
+    .ul-glitch li::before {
+        content: ">";
+        position: absolute;
+        left: 0;
+        color: #ff00c8;
+    }
+
+@keyframes glitchList {
+    0% {
+        transform: skewX(0deg);
+        opacity: 1;
+    }
+
+    50% {
+        transform: skewX(2deg);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: skewX(0deg);
+        opacity: 1;
+    }
+}
+
+/* Neon blockquote */
+.blockquote-neon {
+    border-left: 4px solid #00ff80;
+    padding: 16px 20px;
+    margin: 30px 0;
+    background: rgba(0,255,128,0.08);
+    box-shadow: 0 0 12px rgba(0,255,128,0.4);
+    color: #d8ffe8;
+}
+
+/* Terminal blockquote */
+.blockquote-terminal {
+    border-left: 4px solid #c8ff00;
+    padding: 16px 20px;
+    margin: 30px 0;
+    background: rgba(200,255,0,0.08);
+    font-family: monospace;
+}
+
+/* Glitch blockquote */
+.blockquote-glitch {
+    border-left: 4px solid #ff00c8;
+    padding: 16px 20px;
+    margin: 30px 0;
+    background: rgba(255,0,200,0.08);
+    animation: glitchBQ 1.2s infinite;
+}
+
+@keyframes glitchBQ {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(1px);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.ascii-box {
+    font-family: monospace;
+    white-space: pre;
+    padding: 20px;
+    margin: 30px 0;
+    color: #00ff80;
+    background: rgba(0,255,128,0.06);
+    border: 1px solid #00ff80;
+    box-shadow: 0 0 12px rgba(0,255,128,0.4);
+}
+
+.terminal-block {
+    background: rgba(0,0,0,0.7);
+    border: 1px solid #00ff80;
+    padding: 20px;
+    margin: 30px 0;
+    font-family: monospace;
+    color: #00ff80;
+    box-shadow: 0 0 12px rgba(0,255,128,0.4);
+    position: relative;
+}
+
+    .terminal-block::after {
+        content: "█";
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        animation: cursorBlink 0.8s infinite;
+    }
+
+@keyframes cursorBlink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Tab container */
+.tabs {
+    display: flex;
+    gap: 12px;
+    margin: 30px 0;
+}
+
+/* Tab button */
+.tab {
+    padding: 10px 18px;
+    border: 1px solid #00ff80;
+    color: #00ff80;
+    cursor: pointer;
+    border-radius: 6px;
+    text-shadow: 0 0 8px #00ff80;
+    transition: 0.2s;
+}
+
+    .tab:hover {
+        background: rgba(0,255,128,0.1);
+        box-shadow: 0 0 12px rgba(0,255,128,0.4);
+    }
+
+    /* Active tab */
+    .tab.active {
+        background: rgba(0,255,128,0.2);
+        box-shadow: 0 0 16px rgba(0,255,128,0.6);
+    }
+
+/* Panels */
+.panel {
+    display: none;
+    padding: 20px;
+    border: 1px solid #00ff80;
+    border-radius: 10px;
+    background: rgba(0,255,128,0.06);
+    box-shadow: 0 0 12px rgba(0,255,128,0.4);
+    margin-bottom: 30px;
+}
+
+    .panel.active {
+        display: block;
+    }
+
+/* ============================================================
+   APPLY FONTS
+   ============================================================ */
+h1, h2, h3, h4, h5, h6,
+.h1-beam, .h1-glitch, .h2-circuit, .h2-pulse,
+.h3-terminal, .h3-scan {
+    font-family: var(--font-header);
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.cd-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(0,255,128,0.4);
+    background: rgba(0,255,128,0.05);
+    backdrop-filter: blur(4px);
+    z-index: 50;
+}
+
+.cd-title {
+    font-family: var(--font-header);
+    color: #00ff80;
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px #00ff80;
+    z-index: 50;
+}
+
+.cd-nav a {
+    margin-left: 20px;
+    color: #00ff80;
+    text-decoration: none;
+    font-family: var(--font-header);
+    text-shadow: 0 0 6px #00ff80;
+    transition: 0.2s;
+    z-index: 50;
+}
+
+    .cd-nav a:hover {
+        color: #00ffaa;
+        text-shadow: 0 0 12px #00ffaa;
+        z-index: 50;
+    }
+
+/* ============================================================
+   HUD HEADER PANEL
+   ============================================================ */
+.cd-hud-header {
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Outer glowing frame */
+.cd-hud-frame {
+    padding: 16px 28px;
+    border: 2px solid #00ff80;
+    border-radius: 14px;
+    background: rgba(0,255,128,0.06);
+    box-shadow: 0 0 20px rgba(0,255,128,0.6), inset 0 0 20px rgba(0,255,128,0.4);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    backdrop-filter: blur(4px);
+}
+
+    /* Circuit corner accents */
+    .cd-hud-frame::before,
+    .cd-hud-frame::after {
+        content: "";
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        border: 2px solid #00ff80;
+        opacity: 0.8;
+    }
+
+    .cd-hud-frame::before {
+        top: -6px;
+        left: -6px;
+        border-right: none;
+        border-bottom: none;
+    }
+
+    .cd-hud-frame::after {
+        bottom: -6px;
+        right: -6px;
+        border-left: none;
+        border-top: none;
+    }
+
+/* Title */
+.cd-hud-title {
+    font-family: var(--font-header);
+    font-size: 1.4rem;
+    color: #00ff80;
+    text-shadow: 0 0 12px #00ff80, 0 0 24px rgba(0,255,128,0.8);
+    letter-spacing: 1px;
+}
+
+/* NAVIGATION */
+.cd-hud-nav {
+    display: flex;
+    gap: 24px;
+}
+
+    /* Neoncore links */
+    .cd-hud-nav a {
+        font-family: var(--font-header);
+        color: #00ffea;
+        text-decoration: none;
+        font-size: 1rem;
+        position: relative;
+        padding: 4px 0;
+        text-shadow: 0 0 10px #00eaff, 0 0 20px rgba(0,200,255,0.8), 0 0 40px rgba(0,200,255,0.6);
+        transition: 0.2s ease-out;
+    }
+
+        /* Hover glow burst */
+        .cd-hud-nav a:hover {
+            color: #aaffff;
+            text-shadow: 0 0 14px #00eaff, 0 0 30px #00eaff, 0 0 60px #00eaff;
+            transform: translateY(-1px);
+        }
+
+        /* Neon underline sweep */
+        .cd-hud-nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #00eaff, transparent);
+            opacity: 0;
+            transform: translateX(-20%);
+            transition: 0.25s;
+        }
+
+        .cd-hud-nav a:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Optional: subtle glitch shimmer */
+        .cd-hud-nav a:hover {
+            animation: neonShimmer 0.4s linear;
+        }
+
+@keyframes neonShimmer {
+    0% {
+        text-shadow: 0 0 10px #00eaff;
+    }
+
+    50% {
+        text-shadow: 0 0 20px #00eaff;
+    }
+
+    100% {
+        text-shadow: 0 0 10px #00eaff;
+    }
+}
+
+
+
+/* ============================================================
+   BLOG POST
+   ============================================================ */
+.cd-post {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.cd-meta {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 8px;
+    color: #00ff80;
+}

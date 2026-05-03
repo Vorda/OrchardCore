@@ -1,0 +1,6 @@
+<nav class="nc-nav">
+    {% for item in Model.Items %}
+    {{ item | shape_render }}
+    {% endfor %}
+    <a href="/Contact" class="nc-link">Let's Work Together</a>
+</nav>

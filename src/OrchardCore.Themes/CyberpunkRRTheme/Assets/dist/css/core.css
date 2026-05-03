@@ -1,0 +1,94 @@
+/* ============================================================
+   CYBERDECK THEME CORE
+   ============================================================ */
+
+/* FONT THEMES */
+.theme-A {
+    --font-body: 'JetBrains Mono', monospace;
+    --font-header: 'Share Tech Mono', monospace;
+}
+
+.theme-B {
+    --font-body: 'JetBrains Mono', monospace;
+    --font-header: 'Orbitron', sans-serif;
+}
+
+/* HYBRID MODE VARIABLES */
+:root {
+    --bg-main: #020304;
+    --bg-panel: rgba(0,255,128,0.06);
+    --text-main: #d8ffe8;
+    --neon-strength: 1;
+    --noise-opacity: 0.45;
+    --rain-brightness: 0.28;
+    --circuit-brightness: 0.9;
+    --border-brightness: 0.7;
+    --reading-bg: #0b0d0e;
+    --reading-panel: rgba(0,255,128,0.03);
+    --reading-text: #e8fff2;
+    --reading-neon: 0.4;
+    --reading-noise: 0.15;
+    --reading-rain: 0.12;
+}
+
+body.reading-mode {
+    --bg-main: var(--reading-bg);
+    --bg-panel: var(--reading-panel);
+    --text-main: var(--reading-text);
+    --neon-strength: var(--reading-neon);
+    --noise-opacity: var(--reading-noise);
+    --rain-brightness: var(--reading-rain);
+    --circuit-brightness: 0.5;
+    --border-brightness: 0.4;
+}
+
+/* GLOBAL BACKGROUND + NOISE */
+body {
+    margin: 0;
+    background: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+    body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient( to bottom, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 2px, transparent 4px );
+        mix-blend-mode: screen;
+        opacity: var(--noise-opacity);
+        z-index: 20;
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background: radial-gradient(circle, transparent 55%, rgba(0,0,0,0.6) 100%);
+        z-index: 19;
+    }
+
+/* PAGE LAYOUT */
+.page {
+    position: relative;
+    z-index: 30;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(260px, 1fr);
+    gap: 32px;
+    padding: 24px;
+}
+
+@media (max-width: 900px) {
+    .main {
+        grid-template-columns: 1fr;
+    }
+}

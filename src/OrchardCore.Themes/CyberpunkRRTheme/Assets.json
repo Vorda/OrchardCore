@@ -1,0 +1,14 @@
+[
+  {
+    "inputs": [
+      "Assets/dist/css/core.css"
+    ],
+    "output": "wwwroot/css/core.css"
+  },
+  {
+    "inputs": [
+      "Assets/dist/css/cyberpunkRR.css"
+    ],
+    "output": "wwwroot/css/cyberpunkRR.css"
+  }
+]

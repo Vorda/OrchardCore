@@ -1,0 +1,16 @@
+{% zone "Header" %}
+    <section class="s-pageheader pageheader">
+        {{ Model.Header | shape_render }}
+        <div class="metadata">
+            {{ Model.Meta | shape_render }}
+        </div>
+    </section>
+{% endzone %}
+
+<section class="s-pagecontent pagecontent">
+    {{ Model.Content | shape_render }}
+</section>
+
+<footer>
+    {{ Model.Footer | shape_render }}
+</footer>
